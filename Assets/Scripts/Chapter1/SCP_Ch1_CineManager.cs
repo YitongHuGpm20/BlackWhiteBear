@@ -6,26 +6,13 @@ using UnityEngine.Timeline;
 using UnityEngine.UI;
 using TMPro;
 
-public class SCP_Ch1_CineManager : MonoBehaviour
+public class SCP_Ch1_CineManager : SCP_Base_CineManager
 {
     private SCP_Ch1_GameManager gameManager;
-    private PlayableDirector director;
-    private AudioSource bgm;
-    private int timelineIndex;
-    private int screenIndex;
-    private int subtitleIndex;
-    
-    // Assets
-    [SerializeField] private TimelineAsset[] timelines;
-    [Multiline]
-    [SerializeField] private string[] subtitleContent;
-    [SerializeField] private AudioClip[] bgms;
 
     // Actors
-    [SerializeField] private GameObject[] screens;
-    [SerializeField] private GameObject subtitle;
     [SerializeField] private GameObject thankYou;
-    private TMP_Text subtitleText;
+    
     private GameObject muted;
     private GameObject unmuted;
     private GameObject auntySleep;
@@ -35,91 +22,53 @@ public class SCP_Ch1_CineManager : MonoBehaviour
     private SCP_Ch1_WayHomeFade ch1EndFade;
     private SCP_Ch4_FadeInColor ch4EndFade;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        gameManager = GameObject.Find("GameManager_Ch1").GetComponent<SCP_Ch1_GameManager>();
-        director = GetComponent<PlayableDirector>();
-        director.stopped += OnPlayableDirectorStopped;
+        base.OnEnable();
+        gameManager = GameObject.Find("GameManager").GetComponent<SCP_Ch1_GameManager>();
         subtitle.GetComponent<Button>().onClick.AddListener(CloseSubtitle);
-        bgm = GameObject.Find("BGM").GetComponent<AudioSource>();
         bgm.clip = bgms[0];
         bgm.Play();
-    }
-
-    private void OnDisable()
-    {
-        director.stopped -= OnPlayableDirectorStopped;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        screenIndex = 0;
-        timelineIndex = 0;
-        subtitleIndex = 0;
-        
         // Find actors in screens
-        muted = screens[1].transform.Find("SPR_S1-2_Muted").gameObject;
-        unmuted = screens[1].transform.Find("SPR_S1-2_Unmuted").gameObject;
-        auntySleep = screens[1].transform.Find("SPR_S1-2_AuntySleep").gameObject;
-        auntyAwake = screens[1].transform.Find("SPR_S1-2_AuntyAwake").gameObject;
-        subtitleText = subtitle.transform.Find("TXT_Subtitle").gameObject.GetComponent<TMP_Text>();
-        wayHomeFade = screens[9].transform.Find("SPR_S1-10_Fade").gameObject;
-        ch1EndFade = wayHomeFade.GetComponent<SCP_Ch1_WayHomeFade>();
-        gameEndFade = screens[15].transform.Find("SPR_S4-6_Grey").gameObject;
-        ch4EndFade = gameEndFade.GetComponent<SCP_Ch4_FadeInColor>();
+        //muted = screens[1].transform.Find("SPR_S1-2_Muted").gameObject;
+        //unmuted = screens[1].transform.Find("SPR_S1-2_Unmuted").gameObject;
+        //auntySleep = screens[1].transform.Find("SPR_S1-2_AuntySleep").gameObject;
+        //auntyAwake = screens[1].transform.Find("SPR_S1-2_AuntyAwake").gameObject;
+        //wayHomeFade = screens[9].transform.Find("SPR_S1-10_Fade").gameObject;
+        //ch1EndFade = wayHomeFade.GetComponent<SCP_Ch1_WayHomeFade>();
+        //gameEndFade = screens[15].transform.Find("SPR_S4-6_Grey").gameObject;
+        //ch4EndFade = gameEndFade.GetComponent<SCP_Ch4_FadeInColor>();
 
         // Start from foreword
         subtitleText.text = subtitleContent[subtitleIndex];
     }
 
     // Everytime when a timeline finished
-    private void OnPlayableDirectorStopped(PlayableDirector pd)
+    protected override void OnPlayableDirectorStopped(PlayableDirector pd)
     {
-        if(pd == director)
+        base.OnPlayableDirectorStopped(pd);
+            
+        if (timelineIndex == 0 || timelineIndex == 3) // Start S1-2: The basket stoped at bank
         {
-            Debug.Log("Timeline " + timelineIndex + " finished!");
-
-            if (timelineIndex == 0 || timelineIndex == 3) // Start S1-2: The basket stoped at bank
-            {
-                PlayNextScreen();
-                PlayNextTimeline();
-            }
-            else if (timelineIndex == 1)
-                muted.SetActive(true);
-            else if (timelineIndex == 2)
-                StartClearningMiniGame1();
-            else if (timelineIndex == 4)
-                StartCoroutine(DisplaySubtitle(2, "\"I've been hiding for so long...\" \n \n \"I thought I was the only one...\""));
+            PlayNextScreen();
+            PlayNextTimeline();
         }
+        else if (timelineIndex == 1)
+            muted.SetActive(true);
+        else if (timelineIndex == 2)
+            StartClearningMiniGame1();
+        else if (timelineIndex == 4)
+            StartCoroutine(DisplaySubtitle(2, "\"I've been hiding for so long...\" \n \n \"I thought I was the only one...\""));
     }
 
-    private void PlayNextScreen()
+    protected override void CloseSubtitle()
     {
-        // Switch screens
-        screens[screenIndex].SetActive(false);
-        screenIndex++;
-        screens[screenIndex].SetActive(true);
-    }
-
-    private void PlayNextTimeline()
-    {
-        timelineIndex++;
-        director.Play(timelines[timelineIndex]);
-    }
-
-    private IEnumerator DisplaySubtitle(float sec, string line)
-    {
-        yield return new WaitForSeconds(sec);
-        screens[screenIndex].SetActive(false);
-        subtitle.SetActive(true);
-        subtitleText.text = line;
-    }
-
-    private void CloseSubtitle()
-    {
-        Debug.Log("Clicked on subtitle " + screenIndex);
-        if(screenIndex > 0 || screens[0].activeSelf)
+        if (screenIndex > 0 || screens[0].activeSelf)
         {
             if (subtitleText.text == subtitleContent[2])
             {
@@ -153,7 +102,29 @@ public class SCP_Ch1_CineManager : MonoBehaviour
             screens[screenIndex].SetActive(true);
             director.Play(timelines[timelineIndex]);
         }
-        subtitle.SetActive(false);
+        base.CloseSubtitle();
+    }
+
+    private void PlayNextScreen()
+    {
+        // Switch screens
+        screens[screenIndex].SetActive(false);
+        screenIndex++;
+        screens[screenIndex].SetActive(true);
+    }
+
+    private void PlayNextTimeline()
+    {
+        timelineIndex++;
+        director.Play(timelines[timelineIndex]);
+    }
+
+    private IEnumerator DisplaySubtitle(float sec, string line)
+    {
+        yield return new WaitForSeconds(sec);
+        screens[screenIndex].SetActive(false);
+        subtitle.SetActive(true);
+        subtitleText.text = line;
     }
 
     private IEnumerator DisplayMultipleSubtitles(float sec, string line, IEnumerator func)

@@ -7,7 +7,8 @@ public class SCP_Ch1_GameManager : MonoBehaviour
     private SCP_Ch1_CineManager cineManager;
 
     // Cleaning Mini Game
-    [SerializeField] private GameObject screen4;
+    //[SerializeField]
+    private GameObject screen4;
     [SerializeField] private GameObject subtitle;
     private GameObject mask;
     private GameObject collidePoints;
@@ -27,12 +28,12 @@ public class SCP_Ch1_GameManager : MonoBehaviour
 
     private void Start()
     {
-        cineManager = GameObject.Find("CineManager_Ch1").GetComponent<SCP_Ch1_CineManager>();
+        cineManager = GameObject.Find("CineManager").GetComponent<SCP_Ch1_CineManager>();
 
-        mask = screen4.transform.Find("SPM_S1-4_DirtMask").gameObject;
-        collidePoints = screen4.transform.Find("CollidePoints").gameObject;
-        dirt = screen4.transform.Find("SPR_S1-4_Dirt").gameObject;
-        dirtBrush = screen4.transform.Find("DirtBrush").gameObject;
+        //mask = screen4.transform.Find("SPM_S1-4_DirtMask").gameObject;
+        //collidePoints = screen4.transform.Find("CollidePoints").gameObject;
+        //dirt = screen4.transform.Find("SPR_S1-4_Dirt").gameObject;
+        //dirtBrush = screen4.transform.Find("DirtBrush").gameObject;
     }
 
     // Update is called once per frame

@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3558046626397295793}
   - component: {fileID: 3558046626397295792}
   m_Layer: 5
-  m_Name: TXT_Subtitle
+  m_Name: TXT_Subtitles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
