@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - DirtMask
+  - SubtitleScreen
+  - AnimationScreen
+  - PuzzleScreen
   layers:
   - Default
   - TransparentFX
