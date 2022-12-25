@@ -19,7 +19,7 @@ public class SCP_CineManager : MonoBehaviour
     [SerializeField] private GameObject[] screens;
 
     // Variables
-    int screenIndex;
+    private int screenIndex;
 
     // Initialization
     private void Awake()
@@ -65,14 +65,30 @@ public class SCP_CineManager : MonoBehaviour
         if (!pd || pd != director) return;
     }
 
-    // To start next screen
+    // To start a screen by index
     private void StartScreen(int index)
     {
         RemoveAllChildren(screenRoot);
         GameObject nextScreen = Instantiate(screens[index]);
         nextScreen.transform.parent = screenRoot.transform;
+        Debug.Log("Start screen " + index);
     }
 
+    public void StartNextScreen()
+    {
+        if (screenIndex >= screens.Length-1)
+        {
+            Debug.Log("No more screen to play!");
+            RemoveAllChildren(screenRoot);
+            return;
+        }
+
+        screenIndex++;
+        Debug.Log("Start next screen " + screenIndex);
+        StartScreen(screenIndex);
+    }
+
+    // To remove all children objects of an object
     private void RemoveAllChildren(GameObject parentObject)
     {
         while (parentObject.transform.childCount > 0)

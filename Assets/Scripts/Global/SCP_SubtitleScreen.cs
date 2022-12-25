@@ -13,14 +13,18 @@ using TMPro;
 public class SCP_SubtitleScreen : MonoBehaviour
 {
     // References
-    private Button button;
+    private Button button; // the whole panel is a button
     private GameObject clickPrompt;
     private TMP_Text subtitle;
+    private SCP_CineManager cineManager;
 
     // Variables
-    [Multiline]
-    [SerializeField] private string subtitleContent;
-    
+    [Multiline] [SerializeField] private string subtitleContent;
+    [SerializeField] private float displayDuration; //5
+    [SerializeField] private float floatingSpeed; //5
+    [SerializeField] private float floatingAmount; //20
+    private float originY;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,14 +32,38 @@ public class SCP_SubtitleScreen : MonoBehaviour
         button = transform.GetChild(0).transform.GetChild(0).GetComponent<Button>();
         clickPrompt = button.gameObject.transform.Find("IMG_ClickPrompt").gameObject;
         subtitle = button.gameObject.transform.Find("TXT_Subtitles").gameObject.GetComponent<TMP_Text>();
+        cineManager = GameObject.Find("CineManager").GetComponent<SCP_CineManager>();
 
-        // Set variables
+        // Set variables and functions
+        button.interactable = false;
+        button.onClick.AddListener(OnButtonClick);
         subtitle.text = subtitleContent;
+        originY = clickPrompt.transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (clickPrompt.activeSelf)
+        {
+            float y = Mathf.Sin(Time.time * floatingSpeed) * floatingAmount;
+            clickPrompt.transform.position = new Vector3(clickPrompt.transform.position.x, originY + y, clickPrompt.transform.position.z);
+        }
+
+        if (displayDuration > 0)
+            displayDuration -= Time.deltaTime;
+        else
+        {
+            button.interactable = true;
+            clickPrompt.SetActive(true);
+        }   
+    }
+
+    // Called when click anywhere
+    private void OnButtonClick()
+    {
+        button.interactable = false;
+        Debug.Log("hi!");
+        cineManager.StartNextScreen();
     }
 }
