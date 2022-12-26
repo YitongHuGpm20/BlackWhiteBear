@@ -540,6 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screens:
+  - {fileID: 7734122951077349786, guid: 4f57d91cc83333b44920a6ee1c3152ef, type: 3}
   - {fileID: 5008135405501595101, guid: 41f96bfaae8b0114ebaead84f067a7cd, type: 3}
 --- !u!1 &1283142115
 GameObject:

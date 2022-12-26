@@ -20,7 +20,7 @@ public class SCP_SubtitleScreen : MonoBehaviour
 
     // Variables
     [Multiline] [SerializeField] private string subtitleContent;
-    [SerializeField] private float displayDuration; //5
+    [SerializeField] private float displayDuration; //3
     [SerializeField] private float floatingSpeed; //5
     [SerializeField] private float floatingAmount; //20
     private float originY;

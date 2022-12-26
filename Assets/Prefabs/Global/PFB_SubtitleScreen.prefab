@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtitleContent: '"Subtitle screen displays subtitles."'
-  displayDuration: 5
+  displayDuration: 3
   floatingSpeed: 5
   floatingAmount: 10
 --- !u!1 &6362396578714695494

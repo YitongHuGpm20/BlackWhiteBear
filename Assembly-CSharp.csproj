@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Chapter4\SCP_Ch4_Pen.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_AuntyInLab.cs" />
+    <Compile Include="Assets\Scripts\Global\SCP_CineManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_GameManager.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_CineManager.cs" />
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_Stars.cs" />
     <Compile Include="Assets\Scripts\Global\SCP_CollidePoints.cs" />
+    <Compile Include="Assets\Scripts\Global\SCP_SubtitleScreen.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
@@ -92,6 +94,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\Scripts\Global\SCP_AnimationScreen.cs" />
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_AuntyInSchool.cs" />
     <Compile Include="Assets\Scripts\ViewportHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -116,8 +119,6 @@
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_AuntySleep.cs" />
     <Compile Include="Assets\Scripts\Menu\SCP_MainMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\Scripts\Global\SCP_CineManager.cs" />
-    <Compile Include="Assets\Scripts\Global\SCP_SubtitleScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
