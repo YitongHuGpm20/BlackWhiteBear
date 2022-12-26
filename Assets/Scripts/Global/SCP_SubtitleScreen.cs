@@ -10,13 +10,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class SCP_SubtitleScreen : MonoBehaviour
+public class SCP_SubtitleScreen : SCP_ScreenBase
 {
     // References
     private Button button; // the whole panel is a button
     private GameObject clickPrompt;
     private TMP_Text subtitle;
-    private SCP_CineManager cineManager;
 
     // Variables
     [Multiline] [SerializeField] private string subtitleContent;
@@ -26,13 +25,14 @@ public class SCP_SubtitleScreen : MonoBehaviour
     private float originY;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         // Find references
         button = transform.GetChild(0).transform.GetChild(0).GetComponent<Button>();
         clickPrompt = button.gameObject.transform.Find("IMG_ClickPrompt").gameObject;
         subtitle = button.gameObject.transform.Find("TXT_Subtitles").gameObject.GetComponent<TMP_Text>();
-        cineManager = GameObject.Find("CineManager").GetComponent<SCP_CineManager>();
 
         // Set variables and functions
         button.interactable = false;

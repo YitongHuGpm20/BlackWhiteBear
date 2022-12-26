@@ -13,34 +13,17 @@ public class SCP_CineManager : MonoBehaviour
 {
     // References
     private GameObject screenRoot;
-    private PlayableDirector director;
 
     // Item Lists
     [SerializeField] private GameObject[] screens;
 
     // Variables
-    private int screenIndex;
+    [SerializeField] private int screenIndex;
 
     // Initialization
     private void Awake()
     {
-        director = GetComponent<PlayableDirector>();
-
-        screenIndex = 0;
-    }
-
-    // OnEnable is called everytime CineManager is activated
-    private void OnEnable()
-    {
-        // Enable playable director
-        director.stopped += OnPlayableDirectorStopped;
-    }
-
-    // OnDisable is called everytime CineManager is deactivated
-    private void OnDisable()
-    {
-        // Disable playable director
-        director.stopped -= OnPlayableDirectorStopped;
+        //screenIndex = 0;
     }
 
     // Start is called before the first frame update
@@ -49,7 +32,7 @@ public class SCP_CineManager : MonoBehaviour
         // Find references in scene
         screenRoot = GameObject.Find("ScreenRoot");
 
-        // Start 1-1-1
+        // Start the first screen
         StartScreen(screenIndex);
     }
 
@@ -57,12 +40,6 @@ public class SCP_CineManager : MonoBehaviour
     private void Update()
     {
         
-    }
-
-    // Called when a timeline finished
-    private void OnPlayableDirectorStopped(PlayableDirector pd)
-    {
-        if (!pd || pd != director) return;
     }
 
     // To start a screen by index

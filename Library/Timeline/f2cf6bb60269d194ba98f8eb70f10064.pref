@@ -26,12 +26,12 @@ MonoBehaviour:
     showMarkers: 1
     showInlineCurves: 1
     inlineAnimationCurveHeight: 100
-    lastInlineCurveDataID: -20962
+    lastInlineCurveDataID: 28054
     inlineCurvesState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 00000080ffffffff
+      m_SelectedIDs: 74c5130d
+      m_LastClickedID: 219399540
+      m_ExpandedIDs: 00000080ffffffff74c5130d
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

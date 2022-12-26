@@ -10,47 +10,24 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
-public class SCP_AnimationScreen : MonoBehaviour
+public class SCP_AnimationScreen : SCP_ScreenBase
 {
     // References
     [SerializeField] protected TimelineAsset timeline;
-    private PlayableDirector director;
-    private SCP_CineManager cineManager;
-
-    // Initialization
-    private void Awake()
-    {
-        director = GetComponent<PlayableDirector>();
-    }
-
-    // OnEnable is called everytime CineManager is activated
-    private void OnEnable()
-    {
-        // Enable playable director
-        director.stopped += OnPlayableDirectorStopped;
-    }
-
-    // OnDisable is called everytime CineManager is deactivated
-    private void OnDisable()
-    {
-        // Disable playable director
-        director.stopped -= OnPlayableDirectorStopped;
-    }
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        // Find references
-        cineManager = GameObject.Find("CineManager").GetComponent<SCP_CineManager>();
-
+        base.Start();
+        
         // Set variables and functions
         director.Play(timeline);
     }
 
     // Called when a timeline finished
-    private void OnPlayableDirectorStopped(PlayableDirector pd)
+    protected override void OnPlayableDirectorStopped(PlayableDirector p)
     {
-        if (!pd || pd != director) return;
+        base.OnPlayableDirectorStopped(p);
         cineManager.StartNextScreen();
     }
 }
