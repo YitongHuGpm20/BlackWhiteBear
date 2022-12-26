@@ -129,6 +129,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5991881724293030251, guid: bb39d3ccaa234ad4ab6975ed726c742c, type: 3}
+      propertyPath: m_InitialState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991881724293030251, guid: bb39d3ccaa234ad4ab6975ed726c742c, type: 3}
       propertyPath: m_PlayableAsset
       value: 
       objectReference: {fileID: 11400000, guid: c2ce32fdde195554eab2db39b64deaf5, type: 2}

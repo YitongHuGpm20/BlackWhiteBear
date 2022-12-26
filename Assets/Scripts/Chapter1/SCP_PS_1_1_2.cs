@@ -7,9 +7,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class SCP_PS_1_1_2 : SCP_PuzzleScreen
 {
+    // References
+    private GameObject aunty;
+    private GameObject soundIcon;
+    private GameObject orphan;
+    
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -20,5 +26,11 @@ public class SCP_PS_1_1_2 : SCP_PuzzleScreen
     void Update()
     {
         
+    }
+
+    // Called when a timeline finished
+    protected override void OnPlayableDirectorStopped(PlayableDirector p)
+    {
+        base.OnPlayableDirectorStopped(p);
     }
 }
