@@ -56,7 +56,6 @@
     <Analyzer Include="E:\VS2022\ide\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Global\Old\SCP_Subtitle.cs" />
     <Compile Include="Assets\Scripts\Global\SCP_ScreenBase.cs" />
     <Compile Include="Assets\Scripts\Chapter4\SCP_Ch4_FadeInColor.cs" />
     <Compile Include="Assets\Scripts\Chapter4\SCP_Ch4_Car.cs" />
@@ -91,7 +90,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
-    <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_Unmuted.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -104,7 +102,6 @@
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_QuestionMarks.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_AuntyInChurch.cs" />
-    <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_Muted.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\Global\SCP_PuzzleScreen.cs" />
     <Compile Include="Assets\Scripts\Chapter1\SCP_PS_1_1_2.cs" />
@@ -119,7 +116,6 @@
     <Compile Include="Assets\Scripts\Global\Old\SCP_Base_CineManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_AuntySleep.cs" />
     <Compile Include="Assets\Scripts\Menu\SCP_MainMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
   </ItemGroup>

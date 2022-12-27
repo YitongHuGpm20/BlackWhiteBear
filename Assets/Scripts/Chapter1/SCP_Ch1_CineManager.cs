@@ -73,7 +73,7 @@ public class SCP_Ch1_CineManager : SCP_Base_CineManager
             if (subtitleText.text == subtitleContent[2])
             {
                 subtitleText.text = subtitleContent[3];
-                StartCoroutine(subtitle.GetComponent<SCP_Subtitle>().ActivateClicking());
+                //StartCoroutine(subtitle.GetComponent<SCP_Subtitle>().ActivateClicking());
                 return;
             }
             if (screenIndex == 9)

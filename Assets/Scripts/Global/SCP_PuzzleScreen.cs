@@ -10,5 +10,19 @@ using UnityEngine;
 
 public class SCP_PuzzleScreen : SCP_ScreenBase
 {
-    
+    // Variables
+    protected float playNextScreenTimer = 2.0f;
+    protected bool canPlayNextScreen = false;
+
+    // Play every frame
+    protected virtual void Update()
+    {
+        if(canPlayNextScreen)
+        {
+            if (playNextScreenTimer > 0)
+                playNextScreenTimer -= Time.deltaTime;
+            else
+                cineManager.StartNextScreen();
+        }
+    }
 }

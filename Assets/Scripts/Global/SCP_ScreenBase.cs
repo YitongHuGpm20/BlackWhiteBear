@@ -45,8 +45,34 @@ public class SCP_ScreenBase : MonoBehaviour
     }
 
     // Called when a timeline finished
-    protected virtual void OnPlayableDirectorStopped(PlayableDirector pd)
+    protected virtual void OnPlayableDirectorStopped(PlayableDirector playableDirector)
     {
-        if (!pd || pd != director) return;
+        if (!playableDirector || playableDirector != director) return;
+    }
+
+    // ***** Repeating Motions for small items ******************************************************
+
+    // To rotate constantly from left to right then right to left
+    protected virtual void RotateLeftRotateRight(GameObject gameObj, float rotateSpeed, float rotateAmount)
+    {
+        if(gameObj == null) return;
+        float z = Mathf.Sin(Time.time * rotateSpeed) * rotateAmount;
+        gameObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, z));
+    }
+
+    // To float vertically
+    protected virtual void MoveUpMoveDown(GameObject gameObj, float originY, float moveSpeed, float moveAmount)
+    {
+        if (gameObj == null) return;
+        float y = Mathf.Sin(Time.time * moveSpeed) * moveAmount / 10;
+        gameObj.transform.position = new Vector3(gameObj.transform.position.x, originY + y, gameObj.transform.position.z);
+    }
+
+    // To zoom in and out
+    protected virtual void ZoomBigZoomSmall(GameObject gameObj, float originX, float originY, float zoomSpeed, float zoomAmount)
+    {
+        if (gameObj == null) return;
+        float zoom = Mathf.Sin(Time.time * zoomSpeed) * zoomAmount / 10;
+        gameObj.transform.localScale = new Vector3(originX + zoom, originY + zoom, gameObj.transform.position.z);
     }
 }
