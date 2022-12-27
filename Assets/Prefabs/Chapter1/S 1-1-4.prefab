@@ -13,9 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3711424365811138030, guid: 0502e85556553be4580c81c5dfb46f89, type: 3}
       propertyPath: subtitleContent
-      value: '"S 1-1-4
-
-        dddddddd"'
+      value: '"Poor baby, look at those dirty marks!"'
       objectReference: {fileID: 0}
     - target: {fileID: 3711424365811138031, guid: 0502e85556553be4580c81c5dfb46f89, type: 3}
       propertyPath: m_RootOrder
@@ -61,5 +59,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4674449154531816743, guid: 0502e85556553be4580c81c5dfb46f89, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0502e85556553be4580c81c5dfb46f89, type: 3}
