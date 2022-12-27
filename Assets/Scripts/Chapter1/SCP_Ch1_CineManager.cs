@@ -8,7 +8,7 @@ using TMPro;
 
 public class SCP_Ch1_CineManager : SCP_Base_CineManager
 {
-    private SCP_Ch1_GameManager gameManager;
+    //private SCP_Ch1_GameManager gameManager;
 
     // Actors
     [SerializeField] private GameObject thankYou;
@@ -25,7 +25,7 @@ public class SCP_Ch1_CineManager : SCP_Base_CineManager
     protected override void OnEnable()
     {
         base.OnEnable();
-        gameManager = GameObject.Find("GameManager").GetComponent<SCP_Ch1_GameManager>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<SCP_Ch1_GameManager>();
         subtitle.GetComponent<Button>().onClick.AddListener(CloseSubtitle);
         bgm.clip = bgms[0];
         bgm.Play();
@@ -161,7 +161,7 @@ public class SCP_Ch1_CineManager : SCP_Base_CineManager
     private void StartClearningMiniGame1()
     {
         StartCoroutine(DisplaySubtitle(2, subtitleContent[1]));
-        gameManager.miniGameCleaning = true;
+        //gameManager.miniGameCleaning = true;
     }
 
     // Start S1-5: Realized this is a special-color baby; Called by GameManager

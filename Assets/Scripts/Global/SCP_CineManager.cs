@@ -66,7 +66,7 @@ public class SCP_CineManager : MonoBehaviour
     }
 
     // To remove all children objects of an object
-    private void RemoveAllChildren(GameObject parentObject)
+    public void RemoveAllChildren(GameObject parentObject)
     {
         while (parentObject.transform.childCount > 0)
             DestroyImmediate(parentObject.transform.GetChild(0).gameObject);

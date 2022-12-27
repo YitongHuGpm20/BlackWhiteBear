@@ -50,7 +50,7 @@ public class SCP_ScreenBase : MonoBehaviour
         if (!playableDirector || playableDirector != director) return;
     }
 
-    // ***** Repeating Motions for small items ******************************************************
+    // ***** VFX/Animation for small items ******************************************************
 
     // To rotate constantly from left to right then right to left
     protected virtual void RotateLeftRotateRight(GameObject gameObj, float rotateSpeed, float rotateAmount)
@@ -74,5 +74,13 @@ public class SCP_ScreenBase : MonoBehaviour
         if (gameObj == null) return;
         float zoom = Mathf.Sin(Time.time * zoomSpeed) * zoomAmount / 10;
         gameObj.transform.localScale = new Vector3(originX + zoom, originY + zoom, gameObj.transform.position.z);
+    }
+
+    // To fade out
+    protected virtual void FadeOut(GameObject gameObj, Color objColor, float fadeSpeed)
+    {
+        float fadeAmount = objColor.a - (fadeSpeed * Time.deltaTime);
+        objColor = new Color(objColor.r, objColor.g, objColor.b, fadeAmount);
+        gameObj.GetComponent<SpriteRenderer>().color = objColor;
     }
 }
