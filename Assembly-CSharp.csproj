@@ -83,7 +83,6 @@
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_ExpertComments.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_CineManager.cs" />
-    <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_Stars.cs" />
     <Compile Include="Assets\Scripts\Global\SCP_CollidePoints.cs" />
     <Compile Include="Assets\Scripts\Global\SCP_SubtitleScreen.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -99,7 +98,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Scripts\Chapter4\SCP_Ch4_Greyscale.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_QuestionMarks.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\Chapter1\SCP_Ch1_AuntyInChurch.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
