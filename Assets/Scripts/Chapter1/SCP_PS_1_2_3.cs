@@ -14,13 +14,18 @@ public class SCP_PS_1_2_3 : SCP_PuzzleScreen
     private GameObject baby;
     private GameObject doctor;
     private Animator babyAnimator;
+    private GameObject prompt;
 
     // Variables
-    [SerializeField] private float babyMoveSpeed;
-    [SerializeField] private float doctorMoveSpeed;
+    [SerializeField] private float babyMoveSpeed; //1
+    [SerializeField] private float doctorMoveSpeed; //0.5
+    [SerializeField] private float promptMoveSpeed; //8
+    [SerializeField] private float promptMoveAmount; //0.5
     private Vector3 babyTarget;
     private Vector3 doctorTarget;
     private bool hittedButt;
+    private bool givenInput;
+    private float promptOriginY;
 
     // Initialization
     protected override void Awake()
@@ -28,6 +33,7 @@ public class SCP_PS_1_2_3 : SCP_PuzzleScreen
         base.Awake();
 
         hittedButt = false;
+        givenInput = false;
     }
 
     // Start is called before the first frame update
@@ -39,10 +45,12 @@ public class SCP_PS_1_2_3 : SCP_PuzzleScreen
         baby = transform.Find("SPR_Baby").gameObject;
         doctor = transform.Find("SPR_Doctor").gameObject;
         babyAnimator = baby.GetComponent<Animator>();
+        prompt = transform.Find("SPR_TapPrompt").gameObject;
 
         // Set logic
         babyTarget = baby.transform.position;
         doctorTarget = babyTarget;
+        promptOriginY = prompt.transform.position.y;
     }
 
     // Update is called once per frame
@@ -50,11 +58,21 @@ public class SCP_PS_1_2_3 : SCP_PuzzleScreen
     {
         base.Update();
 
+        // Display Tap-to-move prompt
+        if (!givenInput)
+            MoveUpMoveDown(prompt, promptOriginY, promptMoveSpeed, promptMoveAmount);
+
+        // To make characters move after tap/click
         if (!hittedButt)
         {
             // Get click/tap location
             if (Input.GetMouseButtonDown(0))
             {
+                if(!givenInput)
+                {
+                    givenInput = true;
+                    prompt.SetActive(false);
+                }
                 babyTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 babyTarget.z = -1;
                 if (babyTarget.y > -0.77f) babyTarget.y = -0.77f;
@@ -79,6 +97,7 @@ public class SCP_PS_1_2_3 : SCP_PuzzleScreen
         
     }
 
+    // Called by SCP_1_2_3_Needle, to start next screen
     public void NeedleHitButt()
     {
         hittedButt = true;
