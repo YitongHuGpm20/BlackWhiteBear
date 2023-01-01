@@ -371,7 +371,6 @@
 "Assets/Effects/Blit.cs"
 "Assets/Scripts/CameraAnchor.cs"
 "Assets/Scripts/Chapter1/SCP_1_2_3_Needle.cs"
-"Assets/Scripts/Chapter1/SCP_Ch1_AuntyInChurch.cs"
 "Assets/Scripts/Chapter1/SCP_Ch1_AuntyInLab.cs"
 "Assets/Scripts/Chapter1/SCP_Ch1_AuntyInSchool.cs"
 "Assets/Scripts/Chapter1/SCP_Ch1_CineManager.cs"
