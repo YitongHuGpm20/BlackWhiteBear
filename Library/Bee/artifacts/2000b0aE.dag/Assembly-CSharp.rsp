@@ -376,6 +376,7 @@
 "Assets/Scripts/Chapter1/SCP_Ch1_CineManager.cs"
 "Assets/Scripts/Chapter1/SCP_Ch1_ExpertComments.cs"
 "Assets/Scripts/Chapter1/SCP_Ch1_WayHomeFade.cs"
+"Assets/Scripts/Chapter1/SCP_FallingItem.cs"
 "Assets/Scripts/Chapter1/SCP_PS_1_1_2.cs"
 "Assets/Scripts/Chapter1/SCP_PS_1_1_5.cs"
 "Assets/Scripts/Chapter1/SCP_PS_1_2_3.cs"
